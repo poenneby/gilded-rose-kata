@@ -109,4 +109,12 @@ public class GildedRoseTest {
         app.updateQuality();
         assertThat(app.items[0].quality).isEqualTo(0);
     }
+
+    @Test
+    public void should_drop_quality_twice_as_fast_for_conjured_items() throws Exception {
+        ConjuredItem[] items = new ConjuredItem[]{new ConjuredItem("Conjured", 2, 42)};
+        GildedRose app = new GildedRose(items);
+        app.updateQuality();
+        assertThat(app.items[0].quality).isEqualTo(40);
+    }
 }
